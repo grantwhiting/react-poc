@@ -1,0 +1,70 @@
+.flex-container{
+    align-content: space-between;
+    display: flex;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding: 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+.biz-img{
+    height: 250px;
+    width: 300px;
+    float: left;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-container{
+    /* flex-grow: 1; */
+    padding-right: 20px;
+}
+
+.data-container{
+    /* flex-grow:5; */
+
+}
+
+.biz-title{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 2em;
+    color: #0c6cc4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.biz-location, .biz-price, .biz-contact{
+    color: #c16a10;
+    text-align: left;
+    margin-left: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;    
+}
+
+.biz-details{
+    margin-bottom: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;    
+    font-weight: 500;  
+    margin-top: 10px;  
+}
+
+.biz-description{
+    text-align: left;
+    color: #707070;
+    padding-top: 20px;
+    font-size: 1.1em;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+}
+
+.biz-capital{
+    padding-top: 20px;
+    color: black;
+    font-weight: 600;
+    text-align: left;
+}
+.biz-capital-num{
+    color: red;
+}
+/* .biz-button{
+    align-items: baseline;
+} */

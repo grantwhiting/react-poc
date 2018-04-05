@@ -1,0 +1,46 @@
+[
+    {
+        "id": "1",
+        "title": "Newport Coast Clothing Boutique",
+        "headline": "Popular clothing shop in the heart of downtown",
+        "description": "Currently owned by a E2 VISA holder, who bought it for their VISA approval. Excellent books and records, a must see This is a beautiful, high end boutique located within the highly sought after, affluent & prestigious beach side community of Newport Coast. It ‘s a rare find, has been featured in many publications & is a celebrity favorite. It also boasts a loyal customer base of 3,000+. It features a gorgeous modern & luxurious interior and hosts a number of local and international designers.",
+        "location": "Newport, CA",
+        "price": "$100,000",
+        "capitalRequired": "$84,500",
+        "contact": "415-123-4567",
+        "img": "https://images.bizbuysell.com/shared/listings/defaultphotos/diamond/retailLiquor.jpg"
+    },
+    {
+        "id": "2",
+        "headline": "Once-in-a-lifetime restaurant catering real estate opportunity",
+        "title": "Restaurant Catering Real Estate",
+        "description": "Exceptional opportunity to acquire a well- known restaurant brand along with the real estate on a major thoroughfare. Name is trademarked. Take-out and corporate catering make up a large percentage of the volume. Name and concept has been providing delicious and unique American cuisine in Orange County for over 35 years. Property has a free- standing building on a ½ acre lot with excellent signage. It has been updated and extensively remodeled several year ago. Highly qualified buyer’s may get SBA financing with a 25 year term on the whole package, with as little as 15% cash down.",
+        "location": "Orange County, CA",
+        "price": "$278,000",
+        "capitalRequired": "$128,700",
+        "contact": "510-123-4567",
+        "img": "https://images.bizbuysell.com/shared/listings/147/1474047/227ca9b6-dfd2-4497-9527-65f8fd2332b9-W768.jpg"
+    },
+    {
+        "id": "3",
+        "headline": "Growing transportation and destination services platform",        
+        "title": "Limousine and Party Bus Service",
+        "description": "Great opportunity to own a profitable, high net, low over heads, well-established, limousine service business. This Limousine Service has over twelve(12) years of experience serving the Inland Empire area and offers excellent rates, professional service, fully equipped limousines with experienced chauffeurs. Priding itself with spacious and luxurious limousines to make their clients special day an unforgettable experience, these limousines are perfect for Proms, Weddings, Birthday Parties, Quinceaneras, Sweet Sixteen Parties, Corporate events and much more.",
+        "location": "Riverside, CA",
+        "price": "$32,900",
+        "capitalRequired": "$24,700",
+        "contact": "510-999-9999",
+        "img": "https://images.bizbuysell.com/shared/listings/146/1463312/85a195fa-f40e-4d4f-b1bc-02b70044922d-W768.jpg"
+    },
+    {
+        "id": "4",
+        "headline": "Fun, exciting, and unpredictable food & drink center",        
+        "title": "Tilted Kilt Pub & Eatery Franchise",
+        "description": "Tilted Kilt Pub & Eatery, where good times are always on tap. That's because it's more than just a restaurant, and so much more than a sports bar, festive atmosphere makes us the go-to place to watch sports, enjoy a cold beer and hang out with friends.  Delicious, mouth-watering menu, more than 30 draft and bottled beers to choose from and an extensive spirit selection. All this, plus year-round, nonstop pro and college sports action on all of HD TV screens.",
+        "location": "San Bernardino, CA",
+        "price": "$473,000",
+        "capitalRequired": "$297,540",
+        "contact": "510-111-1111",
+        "img": "https://images.bizbuysell.com/shared/listings/146/1460686/110640ad-6ee5-4e79-b9e0-1cd444617d3b-W768.jpg"
+    }
+]

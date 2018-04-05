@@ -1,0 +1,27 @@
+[
+    {  
+        "franchiseId":15672,
+        "name":"Daphne's",
+        "address":"9025 Wilshire Boulevard",
+        "address2":"5th Floor",
+        "city":"Los Angeles",
+        "stateId":"CA",
+        "zip":"90211",
+        "countryId":1,
+        "localPhone":"3236175431",
+        "minCapitalMin":282500.0,
+        "minCapitalMax":null,
+        "minWorthMin":null,
+        "minWorthMax":null,
+        "franchiseFeeMin":null,
+        "franchiseFeeMax":null,
+        "totalInvestmentMin":282500.0,
+        "totalInvestmentMax":724500.0,
+        "lowCost":null,
+        "businessOpportunity":null,
+        "highCapital":null,
+        "shortDescription":"Healthy, fast-casual Mediterranean with a 30-year history.",
+        "generalDescription":null,
+        "createdDate":"2018-03-19T18:15:36.02"
+    }
+]
