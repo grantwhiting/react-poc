@@ -20,7 +20,7 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(rootReducer)}>
         <BrowserRouter>
             <Switch>
-                <Route path="/franchise-opportunities/:id" component={FranchiseDetail} />
+                <Route path="/franchise-opportunities/:id-franchise-for-sale/" component={FranchiseDetail} />
                 <Route path="/franchise-opportunities" component={App} />
                 <Route path="/" component={App} />
             </Switch>

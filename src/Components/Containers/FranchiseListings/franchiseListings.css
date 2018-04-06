@@ -1,0 +1,101 @@
+.fd_listing {
+    border-top: 1px solid #ccc;
+    color: #6f6f6f;
+    float: left;
+    padding: 15px 0;
+    width: 100%;
+  }
+  .fdTitle {
+    font-family: 'CostarBrownRegular',Helvetica,Arial,sans-serif !important;
+    margin-top: 0;
+    background-color: #fff;
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 140px);
+    display: inline-block;
+    line-height: 1.4286em !important;
+  }
+  .fd_listing img.pic_fdSponsor {
+    float: left;
+    height: 60px;
+    margin-right: 20px;
+    width: 120px;
+    margin-top: 6px;
+  }
+  .fd_listing p.desc {
+    margin: -2px 0 5px;
+    max-height: 40px;
+    height: 40px;
+    overflow: hidden;
+    color: gray;
+    font-size: 15px !important;
+    line-height: 20px;
+    width: 600px;
+    width: calc(100% - 140px);
+    clear: right;
+  }
+  .fd_listing p.capital {
+    float: right;
+    margin-bottom: 5px;
+    margin-right: 190px;
+    padding-bottom: 3px;
+    margin-top: 7px;
+  }
+  .fd_listing .capReq {
+    font-size: 12px;
+    color: #999;
+    font-weight: normal;
+    margin-right: 5px;
+  }
+  .fdCapRequired {
+    font-family: 'CostarBrownBold',Helvetica,Arial,sans-serif !important;
+    font-weight: normal;
+  }
+  .fd_listing p {
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 0;
+  }
+  .fd_listing button.addToCart,
+  .fd_listing button.addedToCart {
+    float: right;
+    clear: right;
+    margin-top: -35px;
+    width: 180px;
+    cursor: pointer;
+    padding: 6px 0;
+    text-align: center;
+    text-decoration: none !important;
+  }
+  .fd_listing button.addToCart {
+    background: #ff8300 !important;
+    border: 1px solid #d88900 !important;
+    background-color: #ff8300 !important;
+    border-color: #da7205;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff !important;
+    font-weight: normal !important;
+    padding: 8px 16px 9px 16px;
+    text-align: center;
+    text-shadow: none;
+    font-size: 15px;
+    font-family: 'CostarBrownRegular',Helvetica,Arial,sans-serif !important;
+    text-decoration: none !important;
+  }
+  .fd_listing button.addedToCart {
+    background: #6c9401 !important;
+    border: 1px solid #5d8000 !important;
+    background-color: #6c9401 !important;
+    color: #fff;
+    text-shadow: none;
+    border-radius: 0;
+    padding: 8px 16px 9px 16px;
+    box-shadow: none;
+    font-size: 15px;
+    font-weight: normal !important;
+    text-decoration: none !important;
+  }
