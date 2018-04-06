@@ -8,6 +8,8 @@ const FRANCHISE_API_DATA = 'http://api-main.dev.bizbuysell.com/franchise/api/fra
 export const FETCH_LISTING = 'FETCH_LISTING';
 export const FETCH_ITEM = 'FETCH_ITEM';
 export const FETCH_FRANCHISE = 'FETCH_FRANCHISE';
+export const FETCH_DETAIL = 'FETCH_DETAIL';
+
 
 export function fetchListing(): any {
     const request = axios.get(LIST_API_DATA);
@@ -27,12 +29,27 @@ export function fetchItem(): any {
 }
 
 export function fetchFranchise(): any {
+    
     const request: any = axios.get(FRANCHISE_API_DATA)
+    .then((response) => {
+        return response;
+    });
+    return {
+        type: FETCH_FRANCHISE,
+        payload: request,
+    };
+}
+
+export function fetchDetail(id: number): any {
+    // console.log(`${FRANCHISE_API_DATA}${id}`, 'request');
+    const request: any = axios.get(`${FRANCHISE_API_DATA}${id}`)
         .then((response) => {
             return response;
         });
+    // console.log('request from fetchDetail',request);
+
     return {
-        type: FETCH_FRANCHISE,
+        type: FETCH_DETAIL,
         payload: request
     };
 }

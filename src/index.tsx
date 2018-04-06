@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
+import FranchiseDetail from './Components/Containers/franchiseDetail';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(rootReducer)}>
         <BrowserRouter>
             <Switch>
+                <Route path="/franchise-opportunities/:id" component={FranchiseDetail} />
                 <Route path="/franchise-opportunities" component={App} />
                 <Route path="/" component={App} />
             </Switch>
