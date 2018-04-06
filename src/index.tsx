@@ -10,16 +10,20 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './Reducers/index';
 import * as ReduxPromise from 'redux-promise';
 import thunk from 'redux-thunk';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, thunk)(createStore); 
 // createStore(rootReducer);
 
 ReactDOM.render(
-<Provider store={createStoreWithMiddleware(rootReducer)}>
-    <App />
-</Provider>, 
-document.getElementById('root'));
-
+    <Provider store={createStoreWithMiddleware(rootReducer)}>
+        <BrowserRouter>
+            <Switch>
+                <Route path="/franchise-opportunities" component={App} />
+                <Route path="/" component={App} />
+            </Switch>
+        </BrowserRouter>
+    </Provider>, 
+    document.getElementById('root'));
 // ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
