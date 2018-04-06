@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Franchise } from '../../Interfaces/interfaces';
 
 
-export const FranchiseListItem = (props: Franchise) => {
+export const FranchiseListItem = (franchise: Franchise) => {
     return(
-        <li>
-            <h3>{props.name}</h3>
-        </li>
+        <div>
+            <h3>{franchise.name}</h3>
+        </div>
     );
 };

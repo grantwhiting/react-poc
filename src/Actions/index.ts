@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { ApiGetAction } from '../Interfaces/interfaces';
 
 const LIST_API_DATA = './data.json';
 const ITEM_API_DATA = './listing.json';
@@ -27,12 +26,11 @@ export function fetchItem(): any {
     };
 }
 
-export function fetchFranchise(): ApiGetAction {
+export function fetchFranchise(): any {
     const request: any = axios.get(FRANCHISE_API_DATA)
         .then((response) => {
             return response;
         });
-    debugger;
     return {
         type: FETCH_FRANCHISE,
         payload: request

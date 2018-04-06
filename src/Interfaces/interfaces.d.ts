@@ -2,11 +2,6 @@ import { AxiosResponse } from "axios";
 
 // add all global interfaces here
 
-export interface ApiGetAction {
-    type: string;
-    payload: AxiosResponse;
-}
-
 export interface Franchise {
     franchiseId?: number,
     name?: string,

@@ -1,15 +1,11 @@
 import {FETCH_FRANCHISE} from '../Actions/index';
-import { ApiGetAction } from '../Interfaces/interfaces.d';
 
-export default function(state: any = [], action: ApiGetAction) {
+export default function(state: any = [], action: any) {
     switch(action.type) {
         case FETCH_FRANCHISE:
-        debugger;
-            return Object.assign(
-                {}, 
-                state,
-                [action.payload.data, ...state]
-            );
+            return [...state,
+                Object.assign({}, action.payload.data)
+            ];
         default:
             return state;
     }

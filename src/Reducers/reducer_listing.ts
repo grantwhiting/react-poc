@@ -1,7 +1,6 @@
 import {FETCH_LISTING} from '../Actions/index';
-import { ApiGetAction } from '../Interfaces/interfaces';
 
-export default function(state: any = [], action: ApiGetAction){
+export default function(state: any = [], action: any){
     switch(action.type){
         case FETCH_LISTING:
         console.log('Action received - fetch Listing', action);
