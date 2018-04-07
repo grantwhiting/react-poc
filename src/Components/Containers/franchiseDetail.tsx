@@ -31,6 +31,7 @@ class FranchiseDetail extends React.Component<Props,State>{
     }
     renderDetails(){
         let data = this.props.detail;
+        debugger;
 
         if(!data){
             return(

@@ -1,5 +1,3 @@
-import { AxiosResponse } from "axios";
-
 // add all global interfaces here
 
 export interface Franchise {
