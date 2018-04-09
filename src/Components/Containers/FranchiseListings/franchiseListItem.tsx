@@ -11,7 +11,8 @@ export class FranchiseListItem extends React.Component<Franchise, State> {
     constructor(props: Franchise) {
         super(props);
         this.state = {
-            sentToCart: false
+
+           sentToCart: this.existsInCart(this.props.franchiseId)
         };
     }
 
@@ -34,16 +35,30 @@ export class FranchiseListItem extends React.Component<Franchise, State> {
         });
 
         // remove cookie
-        document.cookie = `franchiseInCart_${id}=; expires=expires=Thu, 01 Jan 1970 00:00:00 UTC}`;
+        document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC}`;
 
         console.log(document.cookie);
 
         // send of async post to remove item from cart
     }
+
     
     numberWithCommas(amount: number){
         return '$' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
+
+
+    existsInCart(id: number): boolean {
+        var name= `franchiseInCart_${id}`;
+        var pattern = RegExp(name + '=.[^;]*');
+        var matched = document.cookie.match(pattern);
+        if(matched) {
+            return true;
+        }       
+
+    return false;
+    }
+
     render() {
         return(
             <div className="fd_listing">
