@@ -12,12 +12,13 @@
     margin-bottom: 0px;
   }
 
-.fdLocation {
-  color: #6f6f6f;
-}
+  .fdLocation {
+    color: #6f6f6f;
+  }
+
   .fdBusinessDescription {
     font-family: 'CostarBrownRegular',Helvetica,Arial,sans-serif !important;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     background-color: #fff;
     font-size: 17px;
     /* overflow: hidden; */
@@ -35,6 +36,7 @@
     color: #6f6f6f;
     margin-top: 5px;
   }
+  
   .pic_fdSponsor {
     height: 180px;
     margin-right: 20px;
