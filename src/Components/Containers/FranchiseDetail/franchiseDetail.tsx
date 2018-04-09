@@ -22,7 +22,7 @@ class FranchiseDetail extends React.Component<Props,State>{
         const { id } = this.props.match.params;
         this.props.fetchDetail(id);
     }
-
+    
     render(){
         // console.log(this.props.detail[0], 'DETAIL PROPS');
         return(
@@ -33,7 +33,7 @@ class FranchiseDetail extends React.Component<Props,State>{
 
     renderDetails(){
         let data = this.props.detail;
-
+        
         if(!data){
             return(
                 <div>Loading...</div>
@@ -65,7 +65,7 @@ class FranchiseDetail extends React.Component<Props,State>{
                 return(
                     <div key={info[0].franchiseId}>
                         <h1 className="fdTitle">{info[0].name}</h1>
-                         <br/>
+                        <hr />
                          <span className="fdLocation"> {info[0].address},  {info[0].city},  {location[info[0].stateId]} {info[0].zip} </span>
                         <div><img className="pic_fdSponsor" src={`https://www.findafranchise.com/_img/_franchise/${info[0].franchiseId}/${info[0].franchiseImage.displayImage}`} /> </div>
                         <div className="fdBusinessDescription">Business Description
@@ -79,17 +79,6 @@ class FranchiseDetail extends React.Component<Props,State>{
         );
     }
 }
-
-{/* <div key={info[0].franchiseId}>
-<h1 className="fdTitle">{info[0].name}</h1>
-<p>{info[0].address}</p>
-<p>{info[0].address2}</p>
-<p>{info[0].city}</p>
-<p>{info[0].minCapitalMin}</p>
-<p>{info[0].totalInvestmentMin}</p>
-<p>{info[0].totalInvestmentMax}</p>
-<p>{info[0].shortDescription}</p>
-</div> */}
 
 function mapStateToProps({detail}: any) {
     return { detail };
