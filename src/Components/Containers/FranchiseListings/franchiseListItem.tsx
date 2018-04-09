@@ -34,7 +34,7 @@ export class FranchiseListItem extends React.Component<Franchise, State> {
         });
 
         // remove cookie
-        document.cookie = `franchiseInCart_${id}=; expires=expires=Thu, 01 Jan 1970 00:00:00 UTC}`;
+        document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC}`;
 
         console.log(document.cookie);
 
