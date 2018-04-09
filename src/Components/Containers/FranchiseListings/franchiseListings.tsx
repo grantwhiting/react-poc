@@ -7,15 +7,15 @@ import { Franchise } from '../../../Interfaces/interfaces';
 import { FranchiseListItem } from './franchiseListItem';
 
 interface Props {
-    readonly franchise: Franchise;
+    readonly franchise: Franchise[];
     fetchFranchise: any;
 }
 
 interface State {}
 
 class FranchiseListings extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
+
+    componentDidMount() {
         this.props.fetchFranchise();
     }
 
@@ -29,14 +29,15 @@ class FranchiseListings extends React.Component<Props, State> {
     }
 
     renderFranchiseList() {
-        if (!this.props.franchise[0]) {
-            return <div>no data...</div>;
+        if (this.props.franchise.length === 0) {
+            return <div>Loading franchises...</div>;
         }
         
-        const franchiseListItem = this.props.franchise[0].map((item: Franchise) => {
+        const franchiseListItem = this.props.franchise.map((item: Franchise) => {
             const props = {
                 franchiseId: item.franchiseId,
                 name: item.name,
+                shortName: item.shortName,
                 address: item.address,
                 address2: item.address2,
                 city: item.city,

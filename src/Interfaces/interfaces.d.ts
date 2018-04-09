@@ -3,6 +3,7 @@
 export interface Franchise {
     franchiseId: number,
     name: string,
+    shortName: string;
     address: string,
     address2: string,
     city: string,
