@@ -42,6 +42,12 @@ export class FranchiseListItem extends React.Component<Franchise, State> {
         // send of async post to remove item from cart
     }
 
+    
+    numberWithCommas(amount: number){
+        return '$' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+
     existsInCart(id: number): boolean {
         var name= `franchiseInCart_${id}`;
         var pattern = RegExp(name + '=.[^;]*');
@@ -59,7 +65,7 @@ export class FranchiseListItem extends React.Component<Franchise, State> {
                 <Link to={`/franchise-opportunities/${this.props.shortName}-franchise-for-sale/`}>
                     <span className="fdTitle">{this.props.name}</span>
                     <img className="pic_fdSponsor" src={`https://www.findafranchise.com/_img/_franchise/${this.props.franchiseId}/${this.props.franchiseImage.displayImage}`} />
-                    <p className="desc"><span>{this.props.shortDescription}</span></p><p className="capital"><span className="capReq">Capital Required</span> <span className="fdCapRequired">${this.props.totalInvestmentMin}</span></p>
+                    <p className="desc"><span>{this.props.shortDescription}</span></p><p className="capital"><span className="capReq">Capital Required</span> <span className="fdCapRequired">{this.numberWithCommas(this.props.totalInvestmentMin)}</span></p>
                 </Link>
                 <button 
                     className={this.state.sentToCart ? 'addedToCart' : 'addToCart'} 

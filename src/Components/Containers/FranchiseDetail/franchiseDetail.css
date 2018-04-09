@@ -1,0 +1,44 @@
+.fdTitle {
+    font-family: 'CostarBrownRegular',Helvetica,Arial,sans-serif !important;
+    margin-top: 0;
+    background-color: #fff;
+    font-size: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 140px);
+    display: inline-block;
+    line-height: 1.4286em !important;
+    margin-bottom: 0px;
+  }
+
+.fdLocation {
+  color: #6f6f6f;
+}
+  .fdBusinessDescription {
+    font-family: 'CostarBrownRegular',Helvetica,Arial,sans-serif !important;
+    margin-top: 15px;
+    background-color: #fff;
+    font-size: 17px;
+    /* overflow: hidden; */
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+    /* max-width: calc(100% - 150px); */
+    display: inline-block;
+    line-height: 1.4286em !important;
+    font-weight: bold;
+  }
+  
+  .fdBusinessDescription p{
+    font-size: 15px;
+    font-weight: 500;
+    color: #6f6f6f;
+    margin-top: 5px;
+  }
+  .pic_fdSponsor {
+    height: 180px;
+    margin-right: 20px;
+    width: 360px;
+    margin-top: 6px;
+    display: block;
+  }
