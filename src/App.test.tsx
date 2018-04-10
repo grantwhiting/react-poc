@@ -11,7 +11,6 @@ import rootReducer from './Reducers/index';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import * as Enzyme from 'enzyme';
-import { configure } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
