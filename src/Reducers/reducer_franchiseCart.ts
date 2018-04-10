@@ -15,7 +15,11 @@ export default function(state: any = initialState, action: any) {
         case UPDATE_FRANCHISE_CART:
             return [...state, action.data];
         case REMOVE_FRANCHISE_CART:
-            return [action.data, ...state];
+            const arrayWithNameRemoved = state.map((item: string) => {
+                return item !== action.data;
+            });
+            
+            return [...state, arrayWithNameRemoved];
         default:
             return state;
     }

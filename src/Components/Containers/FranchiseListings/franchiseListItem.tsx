@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Franchise } from '../../../Interfaces/interfaces';
 import { Link } from 'react-router-dom';
 import './franchiseListings.css';
-import { addToFranchiseCart } from '../../../Actions';
+import { addToFranchiseCart, removeFromFranchiseCart } from '../../../Actions';
 import { createStore } from 'redux';
 import franchiseCart from '../../../Reducers/reducer_franchiseCart';
 
@@ -43,7 +43,7 @@ class FranchiseListItem extends React.Component<Franchise, State> {
         document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC}`;
 
         // remove franchise from cart
-        // store.dispatch(removeFromFranchiseCart(name));
+        store.dispatch(removeFromFranchiseCart(name));
     }
 
     existsInCart(id: number): boolean {
