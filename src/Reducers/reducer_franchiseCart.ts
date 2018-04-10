@@ -15,7 +15,6 @@ const initialState = {
 export default function(state: any = initialState, action: any) {
     switch(action.type) {
         case UPDATE_FRANCHISE_CART:
-            debugger;
             return {
                 ...state,
                 arr: [...state.arr, action.data]
