@@ -4,6 +4,8 @@ import FranchiseListItem from './franchiseListItem';
 
 interface Props {
     franchises: Franchise[];
+    addToFranchiseCart: any;
+    removeFromFranchiseCart: any;
 }
 
 interface State {}
@@ -53,7 +55,7 @@ class FranchiseListings extends React.Component<Props, State> {
                 franchiseImage: item.franchiseImage
             };
             
-            return <FranchiseListItem key={item.franchiseId} {...props} />;
+            return <FranchiseListItem key={item.franchiseId} {...props} addToFranchiseCart={this.props.addToFranchiseCart} removeFromFranchiseCart={this.props.removeFromFranchiseCart} />;
         });
 
         return <div className="search-results">{franchiseListItem}</div>;

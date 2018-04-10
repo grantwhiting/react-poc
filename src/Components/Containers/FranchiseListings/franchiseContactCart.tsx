@@ -17,8 +17,8 @@ class FranchiseContactCart extends React.Component<Props, State> {
     render() {
         return(
             <div className="franchise-contact-cart">
-                {this.getFranchiseCartData().map((item: Franchise, idx: number) => {
-                    return <p key={idx}>{item.name}</p>;
+                {this.getFranchiseCartData().map((item: Franchise) => {
+                    return <p key={item.franchiseId}>{item.name}</p>;
                 })}
             </div>
         );
