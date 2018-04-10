@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Franchise } from '../../../Interfaces/interfaces';
-import { connect } from 'react-redux';
 
 interface Props {
     franchises: Franchise[];
@@ -9,9 +8,6 @@ interface Props {
 interface State {}
 
 class FranchiseContactCart extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-    }
 
     getFranchiseCartData() {
         let franchiseCartArray: any[] = [];
@@ -26,7 +22,6 @@ class FranchiseContactCart extends React.Component<Props, State> {
     }
 
     render() {
-        debugger;
         return(
             <div className="franchise-contact-cart">
                 {this.props.franchiseCart.map((item: string, idx: number) => {
@@ -37,10 +32,4 @@ class FranchiseContactCart extends React.Component<Props, State> {
     }
 }
 
-function mapStateToProps(state: any) {
-    return { 
-        franchiseCart: state.franchiseCart.arr
-    };
-}
-
-export default connect(mapStateToProps)(FranchiseContactCart);
+export default FranchiseContactCart;

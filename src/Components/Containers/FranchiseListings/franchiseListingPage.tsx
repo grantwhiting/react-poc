@@ -26,7 +26,7 @@ class FranchiseListingsPage extends React.Component<Props, State> {
         return(
             <div className="franchise-listing-page-content">
                 <FranchiseListings franchises={this.props.franchises} />
-                <FranchiseContactCart franchises={this.props.franchises} />
+                <FranchiseContactCart franchises={this.props.franchises} franchiseCart={this.props.franchiseCart} />
             </div>
         );
     }
@@ -35,7 +35,7 @@ class FranchiseListingsPage extends React.Component<Props, State> {
 function mapStateToProps(state: any) {
     return { 
         franchises: state.franchises,
-        franchiseCart: state.franchiseCart.arr
+        franchiseCart: state.franchiseCart
     };
 }
 
