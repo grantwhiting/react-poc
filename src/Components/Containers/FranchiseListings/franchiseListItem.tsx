@@ -2,34 +2,37 @@ import * as React from 'react';
 import { Franchise } from '../../../Interfaces/interfaces';
 import { Link } from 'react-router-dom';
 import './franchiseListings.css';
+import { addToFranchiseCart, removeFromFranchiseCart } from '../../../Actions';
+import { createStore } from 'redux';
+import franchiseCart from '../../../Reducers/reducer_franchiseCart';
+
+const store = createStore(franchiseCart);
 
 interface State {
     sentToCart: boolean;
 }
 
-export class FranchiseListItem extends React.Component<Franchise, State> {
+class FranchiseListItem extends React.Component<Franchise, State> {
     constructor(props: Franchise) {
         super(props);
         this.state = {
-
            sentToCart: this.existsInCart(this.props.franchiseId)
         };
     }
 
-    addToCart(id: number) {
+    addToCart(id: number, name: string) {
         this.setState({
             sentToCart: true
         });
 
         // add cookie
-        document.cookie = `franchiseInCart_${id}=${id}`;
+        document.cookie = `franchiseInCart_${id}=${name}`;
 
-        console.log(document.cookie);
-
-        // send of async post to add item to cart
+        // add franchise to cart in store
+        store.dispatch(addToFranchiseCart(name));
     }
 
-    removeFromCart(id: number) {
+    removeFromCart(id: number, name: string) {
         this.setState({
             sentToCart: false
         });
@@ -37,9 +40,8 @@ export class FranchiseListItem extends React.Component<Franchise, State> {
         // remove cookie
         document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC}`;
 
-        console.log(document.cookie);
-
-        // send of async post to remove item from cart
+        // remove franchise from cart
+        store.dispatch(removeFromFranchiseCart(name));
     }
 
     
@@ -69,7 +71,7 @@ export class FranchiseListItem extends React.Component<Franchise, State> {
                 </Link>
                 <button 
                     className={this.state.sentToCart ? 'addedToCart' : 'addToCart'} 
-                    onClick={() => {this.state.sentToCart ? this.removeFromCart(this.props.franchiseId) : this.addToCart(this.props.franchiseId);}}
+                    onClick={() => {this.state.sentToCart ? this.removeFromCart(this.props.franchiseId, this.props.name) : this.addToCart(this.props.franchiseId, this.props.name);}}
                 >
                     {this.state.sentToCart ? 'Added to List' : 'Add to Request List'}
                     <i className="glyphicon glyphicon-ok" />
@@ -78,3 +80,5 @@ export class FranchiseListItem extends React.Component<Franchise, State> {
         );
     }
 }
+
+export default FranchiseListItem;
