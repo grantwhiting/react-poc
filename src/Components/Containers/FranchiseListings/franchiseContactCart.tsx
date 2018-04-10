@@ -10,8 +10,7 @@ interface State {}
 class FranchiseContactCart extends React.Component<Props, State> {
 
     getFranchiseCartData() {
-        let franchiseCartArray: any[] = [];
-        franchiseCartArray = this.props.franchises.map((item: Franchise) => {
+        const franchiseCartArray = this.props.franchises.map((item: Franchise) => {
             if (this.props.franchiseCart.indexOf(item.name) >= 0) {
                 return item.name;
             }
@@ -24,7 +23,7 @@ class FranchiseContactCart extends React.Component<Props, State> {
     render() {
         return(
             <div className="franchise-contact-cart">
-                {this.props.franchiseCart.map((item: string, idx: number) => {
+                {this.getFranchiseCartData().map((item: string, idx: number) => {
                     return <p key={idx}>{item}</p>;
                 })}
             </div>
