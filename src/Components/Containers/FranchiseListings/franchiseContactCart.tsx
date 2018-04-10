@@ -10,21 +10,24 @@ interface State {}
 class FranchiseContactCart extends React.Component<Props, State> {
 
     getFranchiseCartData() {
-        const franchiseCartArray = this.props.franchises.map((item: Franchise) => {
-            if (this.props.franchiseCart.indexOf(item.name) >= 0) {
-                return item.name;
-            }
-            return;
-        });
+        debugger;
+        // const franchiseCartArray = this.props.franchises.map((item: Franchise) => {
+        //     if (this.props.franchiseCart.indexOf(item.name) >= 0) {
+        //         return item.name;
+        //     }
+        //     return;        
+        // });
 
-        return franchiseCartArray;
+        const arr = this.props.franchises.filter((item: Franchise) => this.props.franchiseCart.indexOf(item.name) >= 0);
+
+        return arr;
     }
 
     render() {
         return(
             <div className="franchise-contact-cart">
-                {this.getFranchiseCartData().map((item: string, idx: number) => {
-                    return <p key={idx}>{item}</p>;
+                {this.getFranchiseCartData().map((item: Franchise, idx: number) => {
+                    return <p key={idx}>{item.name}</p>;
                 })}
             </div>
         );

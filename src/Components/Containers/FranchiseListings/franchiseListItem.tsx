@@ -38,21 +38,21 @@ class FranchiseListItem extends React.Component<Franchise, State> {
         });
 
         // remove cookie
-        document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC}`;
+        document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
 
         // remove franchise from cart
         store.dispatch(removeFromFranchiseCart(name));
     }
 
     existsInCart(id: number): boolean {
-        var name= `franchiseInCart_${id}`;
+        var name = `franchiseInCart_${id}`;
         var pattern = RegExp(name + '=.[^;]*');
         var matched = document.cookie.match(pattern);
-        if(matched) {
+        if (matched) {
             return true;
         }       
 
-    return false;
+        return false;
     }
 
     render() {
