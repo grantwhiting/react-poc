@@ -8,18 +8,22 @@ import { UPDATE_FRANCHISE_CART, REMOVE_FRANCHISE_CART } from '../Actions/index';
 //     return arr;
 // }
 
-const initialState = ['franch 1', 'franch 2'];
+const initialState = {
+    arr: ['franchise 1', 'franchise 2']
+};
 
 export default function(state: any = initialState, action: any) {
     switch(action.type) {
         case UPDATE_FRANCHISE_CART:
-            return [...state, action.data];
+            return {
+                ...state,
+                arr: [...state.arr, action.data]
+            };
         case REMOVE_FRANCHISE_CART:
-            const arrayWithNameRemoved = state.map((item: string) => {
-                return item !== action.data;
-            });
-            
-            return [...state, arrayWithNameRemoved];
+            return {
+                ...state,
+                arr: state.arr.filter((item: string) => item !== action.data)
+            };
         default:
             return state;
     }

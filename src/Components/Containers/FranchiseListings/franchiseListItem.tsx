@@ -28,8 +28,6 @@ class FranchiseListItem extends React.Component<Franchise, State> {
         // add cookie
         document.cookie = `franchiseInCart_${id}=${name}`;
 
-        console.log(document.cookie);
-
         // add franchise to cart in store
         store.dispatch(addToFranchiseCart(name));
     }
