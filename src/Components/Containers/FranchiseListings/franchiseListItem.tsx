@@ -2,18 +2,23 @@ import * as React from 'react';
 import { Franchise } from '../../../Interfaces/interfaces';
 import { Link } from 'react-router-dom';
 import './franchiseListings.css';
-import { addToFranchiseCart, removeFromFranchiseCart } from '../../../Actions';
-import { createStore } from 'redux';
-import franchiseCart from '../../../Reducers/reducer_franchiseCart';
+// import { addToFranchiseCart, removeFromFranchiseCart } from '../../../Actions';
+// import { createStore } from 'redux';
+// import franchiseCart from '../../../Reducers/reducer_franchiseCart';
 
-const store = createStore(franchiseCart);
+// const store = createStore(franchiseCart);
+
+interface FranchiseListItemProps extends Franchise {
+    addToFranchiseCart: any;
+    removeFromFranchiseCart: any;
+}
 
 interface State {
     sentToCart: boolean;
 }
 
-class FranchiseListItem extends React.Component<Franchise, State> {
-    constructor(props: Franchise) {
+class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
+    constructor(props: FranchiseListItemProps) {
         super(props);
         this.state = {
            sentToCart: this.existsInCart(this.props.franchiseId)
@@ -29,7 +34,8 @@ class FranchiseListItem extends React.Component<Franchise, State> {
         document.cookie = `franchiseInCart_${id}=${name}`;
 
         // add franchise to cart in store
-        store.dispatch(addToFranchiseCart(name));
+        // store.dispatch(addToFranchiseCart(name));
+        this.props.addToFranchiseCart(name);
     }
 
     removeFromCart(id: number, name: string) {
@@ -41,7 +47,8 @@ class FranchiseListItem extends React.Component<Franchise, State> {
         document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
 
         // remove franchise from cart
-        store.dispatch(removeFromFranchiseCart(name));
+        // store.dispatch(removeFromFranchiseCart(name));
+        this.props.removeFromFranchiseCart(name);
     }
 
     existsInCart(id: number): boolean {
