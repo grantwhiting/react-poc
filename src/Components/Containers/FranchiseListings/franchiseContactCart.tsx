@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Franchise } from '../../../Interfaces/interfaces';
 import './franchiseContactCart.css';
+import {Link} from 'react-router-dom';
 
 interface Props {
     franchises: Franchise[];
@@ -35,7 +36,9 @@ class FranchiseContactCart extends React.Component<Props, State> {
             return (
                 <li key={item.franchiseId} className="list-group-item">
                     <span>
-                        {item.name}
+                        <Link to={`/franchise-opportunities/${item.shortName}-franchise-for-sale/`}>
+                            {item.name}
+                        </Link>
                         {/* <button className="remove-button" onClick={() => {this.removeFromCart(item.franchiseId, item.name);}}>X</button> */}
                     </span>
                 </li>
