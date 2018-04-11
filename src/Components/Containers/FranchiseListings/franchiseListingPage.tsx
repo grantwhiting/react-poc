@@ -6,6 +6,7 @@ import { addToFranchiseCart, removeFromFranchiseCart } from '../../../Actions';
 import { Franchise } from '../../../Interfaces/interfaces';
 import FranchiseListings from './franchiseListings';
 import FranchiseContactCart from './franchiseContactCart';
+import './franchiseListingPage.css';
 
 interface Props {
     readonly franchises: Franchise[];
@@ -27,13 +28,24 @@ class FranchiseListingsPage extends React.Component<Props, State> {
 
     render() {
         return(
-            <div className="franchise-listing-page-content">
-                <FranchiseListings
-                    franchises={this.props.franchises}
-                    addToFranchiseCart={this.props.addToFranchiseCart}
-                    removeFromFranchiseCart={this.props.removeFromFranchiseCart}
-                />
-                <FranchiseContactCart franchises={this.props.franchises} franchiseCart={this.props.franchiseCart} />
+            <div>
+                <h1>Franchise Listings</h1>
+                <div className="franchise-listing-page-content flex-container">
+                    <div className="listing-container">
+                        <FranchiseListings
+                            franchises={this.props.franchises}
+                            addToFranchiseCart={this.props.addToFranchiseCart}
+                            removeFromFranchiseCart={this.props.removeFromFranchiseCart}
+                        />
+                    </div>
+                    <div className="cart-container">
+                        <FranchiseContactCart 
+                            franchises={this.props.franchises} 
+                            franchiseCart={this.props.franchiseCart} 
+                            removeFromFranchiseCart={this.props.removeFromFranchiseCart}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }

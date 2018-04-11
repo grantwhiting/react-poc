@@ -15,7 +15,6 @@ class FranchiseListings extends React.Component<Props, State> {
     render() {
         return(
             <div>
-                <h1>Franchise List</h1>
                 {this.renderFranchiseList()}
             </div>
         );

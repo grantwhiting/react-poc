@@ -1,0 +1,14 @@
+.list-group{
+    /* display: inline-block; */
+    width: 300px;
+}
+.remove-button{
+    background-color: transparent;
+    border: none;
+    float: right;
+}
+.title{
+    font-size: 140%;
+    font-weight: bold;
+    text-align: center;
+}

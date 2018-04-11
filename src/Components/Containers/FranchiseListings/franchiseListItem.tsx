@@ -77,11 +77,12 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
                     <p className="desc"><span>{this.props.shortDescription}</span></p><p className="capital"><span className="capReq">Capital Required</span> <span className="fdCapRequired">{this.numberWithCommas(this.props.totalInvestmentMin)}</span></p>
                 </Link>
                 <button 
-                    className={this.state.sentToCart ? 'addedToCart' : 'addToCart'} 
+                    key={this.props.franchiseId}
+                    className={this.state.sentToCart ? `addedToCart ${this.props.franchiseId}`  : `addToCart ${this.props.franchiseId}`} 
                     onClick={() => {this.state.sentToCart ? this.removeFromCart(this.props.franchiseId, this.props.name) : this.addToCart(this.props.franchiseId, this.props.name);}}
                 >
                     {this.state.sentToCart ? 'Added to List' : 'Add to Request List'}
-                    <i className="glyphicon glyphicon-ok" />
+                    {this.state.sentToCart === true ? (<i className="glyphicon glyphicon-ok" />) : ''}
                 </button>
             </div>
         );

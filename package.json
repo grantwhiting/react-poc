@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/enzyme-adapter-react-16": "^1.0.2",
     "axios": "^0.18.0",
     "chai": "^4.1.2",
     "enzyme": "^3.3.0",
