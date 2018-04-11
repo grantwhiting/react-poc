@@ -1,39 +1,31 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import  { fetchFranchise } from '../../../Actions';
 import { Franchise } from '../../../Interfaces/interfaces';
-// import { Map } from 'immutable';
-import { FranchiseListItem } from './franchiseListItem';
+import FranchiseListItem from './franchiseListItem';
 
 interface Props {
-    readonly franchise: Franchise[];
-    fetchFranchise: any;
+    franchises: Franchise[];
+    addToFranchiseCart: any;
+    removeFromFranchiseCart: any;
 }
 
 interface State {}
 
 class FranchiseListings extends React.Component<Props, State> {
 
-    componentDidMount() {
-        this.props.fetchFranchise();
-    }
-
     render() {
         return(
             <div>
-                <h1>Franchise List</h1>
                 {this.renderFranchiseList()}
             </div>
         );
     }
 
     renderFranchiseList() {
-        if (this.props.franchise.length === 0) {
+        if (this.props.franchises.length === 0) {
             return <div>Loading franchises...</div>;
         }
         
-        const franchiseListItem = this.props.franchise.map((item: Franchise) => {
+        const franchiseListItem = this.props.franchises.map((item: Franchise) => {
             const props = {
                 franchiseId: item.franchiseId,
                 name: item.name,
@@ -62,19 +54,11 @@ class FranchiseListings extends React.Component<Props, State> {
                 franchiseImage: item.franchiseImage
             };
             
-            return <FranchiseListItem key={item.franchiseId} {...props} />;
+            return <FranchiseListItem key={item.franchiseId} {...props} addToFranchiseCart={this.props.addToFranchiseCart} removeFromFranchiseCart={this.props.removeFromFranchiseCart} />;
         });
 
         return <div className="search-results">{franchiseListItem}</div>;
     }
 }
 
-function mapStateToProps({franchise}: any) {
-    return { franchise };
-}
-
-function mapDispatchToProps(dispatch: any) {
-    return bindActionCreators({fetchFranchise}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FranchiseListings);
+export default FranchiseListings;
