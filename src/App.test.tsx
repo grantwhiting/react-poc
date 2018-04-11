@@ -2,9 +2,9 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
 import FranchiseListingsPage from './Components/Containers/FranchiseListings/franchiseListingPage';
-import * as actions from './Actions/index';
-import axios from 'axios';
-import {FETCH_FRANCHISE, FRANCHISE_API_DATA} from './Actions/index';
+// import * as actions from './Actions/index';
+// import axios from 'axios';
+// import {FETCH_FRANCHISE, FRANCHISE_API_DATA} from './Actions/index';
 
 
 // testing
