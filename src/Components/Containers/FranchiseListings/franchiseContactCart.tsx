@@ -48,7 +48,7 @@ class FranchiseContactCart extends React.Component<Props, State> {
         return(
             <div className="franchise-contact-cart list-group">
                 <li className="list-group-item list-group-item-info title">Franchise Request List</li>
-                {this.props.franchiseCart.length < 2 ? <li className="list-group-item">Select franchises that you want to learn more about!</li> : ''}
+                {this.props.franchiseCart[0] === '' && this.props.franchiseCart.length === 1 || this.props.franchiseCart.length === 0 ? <li className="list-group-item">Select franchises that you want to learn more about!</li> : ''}
                 {this.getFranchiseCartData()}
             </div>
         );
