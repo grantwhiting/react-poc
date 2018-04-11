@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
+// import FranchiseListingsPage from './Components/Containers/FranchiseListings/franchiseListingPage';
 
 // testing
 import { Provider }  from 'react-redux';
@@ -28,4 +29,19 @@ it('renders without crashing', () => {
 it('contains div with className App', () => {
   const wrapper = shallow(<App />);
   expect(wrapper.find('.App'));
+});
+
+it('contains a search-results class within the FranchiseListings Component', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find('.search-results'));
+});
+
+it('contains listings within the FranchiseListings Component', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find('.fd_listing'));
+});
+
+it('contains a franchist cart within the FranchiseListings Component', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find('.cart-container'));
 });
