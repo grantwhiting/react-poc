@@ -31,7 +31,7 @@ export function fetchItem(): any {
 }
 
 export function fetchFranchises(): any {
-    const request: any = axios.get(ITEM_API_DATA)
+    const request: any = axios.get(FRANCHISE_API_DATA)
     .then((response) => {
         return response;
     });
@@ -58,13 +58,15 @@ export function fetchDetail(id: number): any {
 export function addToFranchiseCart(franchiseName: string) {
     return {
         type: UPDATE_FRANCHISE_CART,
-        data: franchiseName
+        data: franchiseName,
+        franchiseInCart: true
     };
 }
 
 export function removeFromFranchiseCart(franchiseName: string) {
     return {
         type: REMOVE_FRANCHISE_CART,
-        data: franchiseName
+        data: franchiseName,
+        franchiseInCart: false
     };
 }

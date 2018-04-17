@@ -14,6 +14,7 @@ interface Props {
     fetchFranchises: any;
     addToFranchiseCart: any;
     removeFromFranchiseCart: any;
+    franchiseInCart: boolean;
 }
 interface State {
     franchiseInCart: boolean;
@@ -64,7 +65,7 @@ class FranchiseListingsPage extends React.Component<Props, State> {
                     <div className="listing-container">
                         <FranchiseListings
                             franchises={this.props.franchises}
-                            franchiseInCart={this.state.franchiseInCart}
+                            franchiseInCart={this.props.franchiseInCart}
                             addToCart={this.addToCart}
                             removeFromCart={this.removeFromCart}
                         />
@@ -85,7 +86,8 @@ class FranchiseListingsPage extends React.Component<Props, State> {
 function mapStateToProps(state: any) {
     return { 
         franchises: state.franchises,
-        franchiseCart: state.franchiseCart.arr
+        franchiseCart: state.franchiseCart.arr,
+        franchiseInCart: state.franchiseCart.franchiseInCart
     };
 }
 
