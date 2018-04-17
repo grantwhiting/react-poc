@@ -9,62 +9,54 @@ import './franchiseListings.css';
 // const store = createStore(franchiseCart);
 
 interface FranchiseListItemProps extends Franchise {
-    addToFranchiseCart: any;
-    removeFromFranchiseCart: any;
+    franchiseInCart: boolean;
+    addToCart: any;
+    removeFromCart: any;
 }
 
 interface State {
-    sentToCart: boolean;
+    franchiseInCart: boolean;
 }
 
 class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
     constructor(props: FranchiseListItemProps) {
         super(props);
+
         this.state = {
-           sentToCart: this.existsInCart(this.props.franchiseId)
+            franchiseInCart: this.existsInCart(this.props.franchiseId)
         };
+
+        this.addToCart = this.addToCart.bind(this);
+        this.removeFromCart = this.removeFromCart.bind(this);
     }
 
-    addToCart(id: number, name: string) {
+    componentWillReceiveProps(newProps: FranchiseListItemProps): void {
         this.setState({
-            sentToCart: true
+            franchiseInCart: newProps.franchiseInCart
         });
+    }
 
-        // add cookie
-        document.cookie = `franchiseInCart_${id}=${name}`;
-
-        // add franchise to cart in store
-        // store.dispatch(addToFranchiseCart(name));
-        this.props.addToFranchiseCart(name);
+    addToCart(id: number, name: string): void {
+        this.props.addToCart(id, name);
     }
 
     removeFromCart(id: number, name: string) {
-        this.setState({
-            sentToCart: false
-        });
-
-        // remove cookie
-        document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
-
-        // remove franchise from cart
-        // store.dispatch(removeFromFranchiseCart(name));
-        this.props.removeFromFranchiseCart(name);
+        this.props.removeFromCart(id, name);
     }
-
     
-    numberWithCommas(amount: number){
+    numberWithCommas(amount: number): string {
         return '$' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
-
 
     existsInCart(id: number): boolean {
         var name = `franchiseInCart_${id}`;
         var pattern = RegExp(name + '=.[^;]*');
         var matched = document.cookie.match(pattern);
+        
         if (matched) {
             return true;
         }       
-
+    
         return false;
     }
 
@@ -78,11 +70,11 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
                 </Link>
                 <button 
                     key={this.props.franchiseId}
-                    className={this.state.sentToCart ? `addedToCart ${this.props.franchiseId}`  : `addToCart ${this.props.franchiseId}`} 
-                    onClick={() => {this.state.sentToCart ? this.removeFromCart(this.props.franchiseId, this.props.name) : this.addToCart(this.props.franchiseId, this.props.name);}}
+                    className={this.state.franchiseInCart ? `addedToCart ${this.props.franchiseId}`  : `addToCart ${this.props.franchiseId}`} 
+                    onClick={() => {this.state.franchiseInCart ? this.removeFromCart(this.props.franchiseId, this.props.name) : this.addToCart(this.props.franchiseId, this.props.name);}}
                 >
-                    {this.state.sentToCart === true ? (<i className="glyphicon glyphicon-ok" />) : ''}
-                    {this.state.sentToCart ? ' Added to List' : 'Add to Request List'}
+                    {this.state.franchiseInCart === true ? (<i className="glyphicon glyphicon-ok" />) : ''}
+                    {this.state.franchiseInCart ? ' Added to List' : 'Add to Request List'}
                 </button>
             </div>
         );

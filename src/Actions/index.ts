@@ -31,7 +31,7 @@ export function fetchItem(): any {
 }
 
 export function fetchFranchises(): any {
-    const request: any = axios.get(FRANCHISE_API_DATA)
+    const request: any = axios.get(ITEM_API_DATA)
     .then((response) => {
         return response;
     });
