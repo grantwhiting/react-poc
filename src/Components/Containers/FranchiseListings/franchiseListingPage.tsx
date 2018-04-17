@@ -15,15 +15,45 @@ interface Props {
     addToFranchiseCart: any;
     removeFromFranchiseCart: any;
 }
-interface State {}
+interface State {
+    franchiseInCart: boolean;
+}
 
 class FranchiseListingsPage extends React.Component<Props, State> {
+    
     constructor(props: Props) {
         super(props);
+
+        this.state = {
+            franchiseInCart: false
+        };
+
+        this.addToCart = this.addToCart.bind(this);
+        this.removeFromCart = this.removeFromCart.bind(this);
     }
     
-    componentDidMount() {
+    componentDidMount(): void {
         this.props.fetchFranchises();
+    }
+
+    addToCart(id: number, name: string): void {
+        this.props.addToFranchiseCart(name);
+
+        document.cookie = `franchiseInCart_${id}=${name}`;
+
+        this.setState({
+            franchiseInCart: true
+        });
+    }
+
+    removeFromCart(id: number, name: string): void {
+        this.props.removeFromFranchiseCart(name);
+
+        document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+
+        this.setState({
+            franchiseInCart: false
+        });
     }
 
     render() {
@@ -34,15 +64,16 @@ class FranchiseListingsPage extends React.Component<Props, State> {
                     <div className="listing-container">
                         <FranchiseListings
                             franchises={this.props.franchises}
-                            addToFranchiseCart={this.props.addToFranchiseCart}
-                            removeFromFranchiseCart={this.props.removeFromFranchiseCart}
+                            franchiseInCart={this.state.franchiseInCart}
+                            addToCart={this.addToCart}
+                            removeFromCart={this.removeFromCart}
                         />
                     </div>
                     <div className="cart-container">
                         <FranchiseContactCart 
                             franchises={this.props.franchises} 
                             franchiseCart={this.props.franchiseCart} 
-                            removeFromFranchiseCart={this.props.removeFromFranchiseCart}
+                            removeFromCart={this.removeFromCart}
                         />
                     </div>
                 </div>
