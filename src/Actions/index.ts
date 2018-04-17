@@ -58,13 +58,15 @@ export function fetchDetail(id: number): any {
 export function addToFranchiseCart(franchiseName: string) {
     return {
         type: UPDATE_FRANCHISE_CART,
-        data: franchiseName
+        data: franchiseName,
+        franchiseInCart: true
     };
 }
 
 export function removeFromFranchiseCart(franchiseName: string) {
     return {
         type: REMOVE_FRANCHISE_CART,
-        data: franchiseName
+        data: franchiseName,
+        franchiseInCart: false
     };
 }
