@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const LIST_API_DATA = './data.json';
-const ITEM_API_DATA = './listing.json';
+export const LIST_API_DATA = './data.json';
+export const ITEM_API_DATA = './listing.json';
 export const FRANCHISE_API_DATA = 'http://api-main.dev.bizbuysell.com/franchise/api/franchise/';
 // const API_TEST = 'https://api.coinmarketcap.com/v1/ticker/?limit=20'
 
