@@ -20,6 +20,7 @@ interface State {
 }
 
 class FranchiseListingsPage extends React.Component<Props, State> {
+    
     constructor(props: Props) {
         super(props);
 

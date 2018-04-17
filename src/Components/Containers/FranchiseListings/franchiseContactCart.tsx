@@ -7,11 +7,8 @@ interface Props {
     franchises: Franchise[];
     franchiseCart: string[];
     removeFromCart: any;
-    // addToFranchiseCart: any;
 }
 interface State {}
-
-
 
 class FranchiseContactCart extends React.Component<Props, State> {
 
@@ -24,7 +21,7 @@ class FranchiseContactCart extends React.Component<Props, State> {
                         <Link to={`/franchise-opportunities/${item.shortName}-franchise-for-sale/`}>
                             {item.name}
                         </Link>
-                        <button className="remove-button" onClick={() => {this.props.removeFromCart(item.franchiseId, item.name);}}>X</button>
+                        <button className="remove-button" onClick={() => {this.props.removeFromCart(item.franchiseId, item.name);}}>&times;</button>
                     </span>
                 </li>
             );

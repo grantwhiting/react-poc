@@ -2,11 +2,6 @@ import * as React from 'react';
 import { Franchise } from '../../../Interfaces/interfaces';
 import { Link } from 'react-router-dom';
 import './franchiseListings.css';
-// import { addToFranchiseCart, removeFromFranchiseCart } from '../../../Actions';
-// import { createStore } from 'redux';
-// import franchiseCart from '../../../Reducers/reducer_franchiseCart';
-
-// const store = createStore(franchiseCart);
 
 interface FranchiseListItemProps extends Franchise {
     franchiseInCart: boolean;
@@ -19,29 +14,19 @@ interface State {
 }
 
 class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
+
     constructor(props: FranchiseListItemProps) {
         super(props);
 
         this.state = {
             franchiseInCart: this.existsInCart(this.props.franchiseId)
         };
-
-        this.addToCart = this.addToCart.bind(this);
-        this.removeFromCart = this.removeFromCart.bind(this);
     }
 
     componentWillReceiveProps(newProps: FranchiseListItemProps): void {
         this.setState({
             franchiseInCart: newProps.franchiseInCart
         });
-    }
-
-    addToCart(id: number, name: string): void {
-        this.props.addToCart(id, name);
-    }
-
-    removeFromCart(id: number, name: string) {
-        this.props.removeFromCart(id, name);
     }
     
     numberWithCommas(amount: number): string {
@@ -52,7 +37,7 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
         var name = `franchiseInCart_${id}`;
         var pattern = RegExp(name + '=.[^;]*');
         var matched = document.cookie.match(pattern);
-        
+
         if (matched) {
             return true;
         }       
@@ -71,7 +56,7 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
                 <button 
                     key={this.props.franchiseId}
                     className={this.state.franchiseInCart ? `addedToCart ${this.props.franchiseId}`  : `addToCart ${this.props.franchiseId}`} 
-                    onClick={() => {this.state.franchiseInCart ? this.removeFromCart(this.props.franchiseId, this.props.name) : this.addToCart(this.props.franchiseId, this.props.name);}}
+                    onClick={() => {this.state.franchiseInCart ? this.props.removeFromCart(this.props.franchiseId, this.props.name) : this.props.addToCart(this.props.franchiseId, this.props.name);}}
                 >
                     {this.state.franchiseInCart === true ? (<i className="glyphicon glyphicon-ok" />) : ''}
                     {this.state.franchiseInCart ? ' Added to List' : 'Add to Request List'}

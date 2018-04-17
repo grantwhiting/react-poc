@@ -13,14 +13,6 @@ interface State {}
 
 class FranchiseListings extends React.Component<Props, State> {
 
-    render() {
-        return(
-            <div>
-                {this.renderFranchiseList()}
-            </div>
-        );
-    }
-
     renderFranchiseList() {
         if (this.props.franchises.length === 0) {
             return <div>Loading franchises...</div>;
@@ -59,6 +51,10 @@ class FranchiseListings extends React.Component<Props, State> {
         });
 
         return <div className="search-results">{franchiseListItem}</div>;
+    }
+
+    render() {
+        return this.renderFranchiseList();
     }
 }
 
