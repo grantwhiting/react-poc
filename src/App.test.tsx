@@ -3,8 +3,10 @@ import * as ReactDOM from 'react-dom';
 import App from './App';
 import FranchiseListingsPage from './Components/Containers/FranchiseListings/franchiseListingPage';
 import * as actions from './Actions/index';
-// import axios from 'axios';
+import reducer from '../src/Reducers/reducer_franchise';
+import axios from 'axios';
 // import {FETCH_FRANCHISE, FRANCHISE_API_DATA} from './Actions/index';
+import {FETCH_FRANCHISE} from './Actions/index';
 
 
 // testing
@@ -96,23 +98,42 @@ describe('Action Testing: FETCH_FRANCHISE', () => {
   });
 });
 
-
 // ADD_TO_FRANCHISE_CART
 describe('Action Testing: ADD_TO_FRANCHISE_CART', () => {
   it('should confirm that the addToFranchiseCart action returns an object', () => {
     expect(actions.addToFranchiseCart('Daphne\'s')).to.be.an('object');
   });
 
-  const results = actions.addToFranchiseCart('Daphne\s');
+  const results = actions.addToFranchiseCart('Daphne\'s');
   it('should confirm that the addToFranchiseCart action object type equals UPDATE_FRANCHISE_CART', () => {
     expect(results.type).to.equal('UPDATE_FRANCHISE_CART');
   });
 
-  it('should confirm that the addToFranchiseCart action object contains data of franchise name to be added to cart', () => {
-    expect(results.data).to.equal('Daphne\s');
+  it('should confirm that the addToFranchiseCart action object contains name of franchise to be added to the cart', 
+    () => { expect(results.data).to.equal('Daphne\'s');
   });
 });
 
+// Reducer Tests
+describe('Check Franchise reducer', () => {
+  it('should contain a switch statement that returns an empty array by default', () => {
+    expect(reducer([],{})).to.be.an('array').that.is.empty;
+    
+  });
+
+  it('should return updated state when type is FETCH_FRANCHISE', () => {
+    // const request: any = axios.get('http://api-main.dev.bizbuysell.com/franchise/api/franchise/')
+    const request: any = axios.get('http://api-main.dev.bizbuysell.com/franchise/api/franchise/')
+    
+    const action = {
+      type: FETCH_FRANCHISE,
+      payload: request
+    };
+    console.log(reducer([],action));
+
+    expect(reducer([],action));
+  });
+});
 
 // describe('actions', () => {
 //   it('should create an action to fetch franchises', () => {
@@ -126,3 +147,14 @@ describe('Action Testing: ADD_TO_FRANCHISE_CART', () => {
 //   });
 // });
 
+// import {FETCH_FRANCHISE} from '../Actions/index';
+
+// export default function(state: any = [], action: any) {
+//     switch(action.type) {
+//         case FETCH_FRANCHISE:
+//             return [action.payload.data, ...state][0];
+
+//         default:
+//             return state;
+//     }
+// }
