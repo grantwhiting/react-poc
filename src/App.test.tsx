@@ -7,7 +7,7 @@ import reducer from '../src/Reducers/reducer_franchise';
 import axios from 'axios';
 // import {FETCH_FRANCHISE, FRANCHISE_API_DATA} from './Actions/index';
 import {FETCH_FRANCHISE} from './Actions/index';
-
+import * as listData from '../public/listing.json';
 
 // testing
 import { Provider }  from 'react-redux';
@@ -122,15 +122,16 @@ describe('Check Franchise reducer', () => {
 
   it('should return updated state when type is FETCH_FRANCHISE', () => {
     // const request: any = axios.get('http://api-main.dev.bizbuysell.com/franchise/api/franchise/')
-    const request: any = axios.get('http://api-main.dev.bizbuysell.com/franchise/api/franchise/');
-    
+    const request: any = axios.get('http://api-main.dev.bizbuysell.com/franchise/api/franchise/').then((response) => {
+      return response;
+    });
+
     const action = {
       type: FETCH_FRANCHISE,
-      payload: request
+      payload: {data: listData}
     };
-    console.log(reducer([],action));
 
-    expect(reducer([],action));
+    expect(reducer([],action)).to.not.equal(undefined);
   });
 });
 
@@ -157,3 +158,4 @@ describe('Check Franchise reducer', () => {
 //             return state;
 //     }
 // }
+
