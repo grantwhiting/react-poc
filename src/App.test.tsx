@@ -117,13 +117,12 @@ describe('Action Testing: ADD_TO_FRANCHISE_CART', () => {
 // Reducer Tests
 describe('Check Franchise reducer', () => {
   it('should contain a switch statement that returns an empty array by default', () => {
-    expect(reducer([],{})).to.be.an('array').that.is.empty;
-    
+    expect(reducer([],{})).to.be.an('array').that.has.lengthOf(0);
   });
 
   it('should return updated state when type is FETCH_FRANCHISE', () => {
     // const request: any = axios.get('http://api-main.dev.bizbuysell.com/franchise/api/franchise/')
-    const request: any = axios.get('http://api-main.dev.bizbuysell.com/franchise/api/franchise/')
+    const request: any = axios.get('http://api-main.dev.bizbuysell.com/franchise/api/franchise/');
     
     const action = {
       type: FETCH_FRANCHISE,
