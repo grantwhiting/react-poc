@@ -23,9 +23,19 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
         };
     }
 
-    componentWillReceiveProps(newProps: FranchiseListItemProps): void {
+    addToCart(id: number, name: string): void {
+        this.props.addToCart(id, name);
+
         this.setState({
-            franchiseInCart: newProps.franchiseInCart
+            franchiseInCart: true
+        });
+    }
+
+    removeFromCart(id: number, name: string): void {
+        this.props.removeFromCart(id, name);
+
+        this.setState({
+            franchiseInCart: false
         });
     }
     
@@ -56,9 +66,9 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
                 <button 
                     key={this.props.franchiseId}
                     className={this.state.franchiseInCart ? `addedToCart ${this.props.franchiseId}`  : `addToCart ${this.props.franchiseId}`} 
-                    onClick={() => {this.state.franchiseInCart ? this.props.removeFromCart(this.props.franchiseId, this.props.name) : this.props.addToCart(this.props.franchiseId, this.props.name);}}
+                    onClick={() => {this.state.franchiseInCart ? this.removeFromCart(this.props.franchiseId, this.props.name) : this.addToCart(this.props.franchiseId, this.props.name);}}
                 >
-                    {this.state.franchiseInCart === true ? (<i className="glyphicon glyphicon-ok" />) : ''}
+                    {this.state.franchiseInCart ? (<i className="glyphicon glyphicon-ok" />) : ''}
                     {this.state.franchiseInCart ? ' Added to List' : 'Add to Request List'}
                 </button>
             </div>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const LIST_API_DATA = './data.json';
-const ITEM_API_DATA = './listing.json';
+export const LIST_API_DATA = './data.json';
+export const ITEM_API_DATA = './listing.json';
 export const FRANCHISE_API_DATA = 'http://api-main.dev.bizbuysell.com/franchise/api/franchise/';
 // const API_TEST = 'https://api.coinmarketcap.com/v1/ticker/?limit=20'
 
@@ -31,7 +31,7 @@ export function fetchItem(): any {
 }
 
 export function fetchFranchises(): any {
-    const request: any = axios.get(ITEM_API_DATA)
+    const request: any = axios.get(FRANCHISE_API_DATA)
     .then((response) => {
         return response;
     });
@@ -58,13 +58,15 @@ export function fetchDetail(id: number): any {
 export function addToFranchiseCart(franchiseName: string) {
     return {
         type: UPDATE_FRANCHISE_CART,
-        data: franchiseName
+        data: franchiseName,
+        franchiseInCart: true
     };
 }
 
 export function removeFromFranchiseCart(franchiseName: string) {
     return {
         type: REMOVE_FRANCHISE_CART,
-        data: franchiseName
+        data: franchiseName,
+        franchiseInCart: false
     };
 }

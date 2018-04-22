@@ -9,7 +9,8 @@ function getCookieValues(): string[] {
 }
 
 const initialState = {
-    arr: getCookieValues()
+    arr: getCookieValues(),
+    franchiseInCart: false
 };
 
 export default function(state: any = initialState, action: any) {
@@ -17,12 +18,14 @@ export default function(state: any = initialState, action: any) {
         case UPDATE_FRANCHISE_CART:
             return {
                 ...state,
-                arr: [...state.arr, action.data]
+                arr: [...state.arr, action.data],
+                franchiseInCart: action.franchiseInCart
             };
         case REMOVE_FRANCHISE_CART:
             return {
                 ...state,
-                arr: state.arr.filter((item: string) => item !== action.data)
+                arr: state.arr.filter((item: string) => item !== action.data),
+                franchiseInCart: action.franchiseInCart
             };
         default:
             return state;
