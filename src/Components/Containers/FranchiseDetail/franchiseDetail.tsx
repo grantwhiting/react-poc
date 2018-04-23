@@ -33,10 +33,11 @@ class FranchiseDetail extends React.Component<Props,State>{
 
     renderDetails(){
         let data = this.props.detail;
-        
+        // console.log(data, 'RENDER DETAILS DATA');
+        // console.log(data, 'DATA NAME');
         if(!data){
             return(
-                <div>Loading...</div>
+                <div>.</div>
             );
         }
 
@@ -63,15 +64,15 @@ class FranchiseDetail extends React.Component<Props,State>{
         return(
             data.map(function(info: any){
                 return(
-                    <div key={info[0].franchiseId}>
-                        <h1 className="fdTitle">{info[0].name}</h1>
+                    <div key={info.franchiseId}>
+                        <h1 className="fdTitle">{info.name}</h1>
                         <hr />
-                         <span className="fdLocation"> {info[0].address},  {info[0].city},  {location[info[0].stateId]} {info[0].zip} </span>
-                        <div><img className="pic_fdSponsor" src={`https://www.findafranchise.com/_img/_franchise/${info[0].franchiseId}/${info[0].franchiseImage.displayImage}`} /> </div>
+                         <span className="fdLocation"> {info.address},  {info.city},  {location[info.stateId]} {info.zip} </span>
+                        <div><img className="pic_fdSponsor" src={`https://www.findafranchise.com/_img/_franchise/${info.franchiseId}/${info.franchiseImage.displayImage}`} /> </div>
                         <div className="fdBusinessDescription">Business Description
-                            <p>{info[0].shortDescription} <br />
-                                Investment Required: {numberWithCommas(info[0].totalInvestmentMin)} {info[0].totalInvestmentMax ? '- ' + numberWithCommas(info[0].totalInvestmentMax) : ''} <br/>
-                                Contact Info: {phoneConversion(info[0].localPhone)}
+                            <p>{info.shortDescription} <br />
+                                Investment Required: {numberWithCommas(info.totalInvestmentMin)} {info.totalInvestmentMax ? '- ' + numberWithCommas(info.totalInvestmentMax) : ''} <br/>
+                                Contact Info: {phoneConversion(info.localPhone)}
                             </p></div>
                     </div>
                 );
@@ -80,8 +81,9 @@ class FranchiseDetail extends React.Component<Props,State>{
     }
 }
 
-function mapStateToProps({detail}: any) {
-    return { detail };
+function mapStateToProps({detail}: any, ownProps: any) {
+    // console.log(detail);
+    return { detail: detail[ownProps.match.params.id] };
 }
 
 function mapDispatchToProps(dispatch: any) {
