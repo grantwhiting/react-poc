@@ -7,6 +7,9 @@ interface Props {
     franchiseInCart: boolean;
     addToCart: any;
     removeFromCart: any;
+    shouldTriggerRemoveFranchise:  boolean;
+    franchiseId: number;
+    franchiseName: string;
 }
 
 interface State {}
@@ -47,7 +50,18 @@ class FranchiseListings extends React.Component<Props, State> {
                 franchiseImage: item.franchiseImage
             };
             
-            return <FranchiseListItem key={item.franchiseId} {...props} franchiseInCart={this.props.franchiseInCart} addToCart={this.props.addToCart} removeFromCart={this.props.removeFromCart} />;
+            return(
+                <FranchiseListItem 
+                    key={item.franchiseId} 
+                    {...props} 
+                    franchiseInCart={this.props.franchiseInCart} 
+                    addToCart={this.props.addToCart} 
+                    removeFromCart={this.props.removeFromCart} 
+                    shouldTriggerRemoveFranchise={this.props.shouldTriggerRemoveFranchise}
+                    franchiseIdToRemove={this.props.franchiseId}
+                    franchiseNameToRemove={this.props.franchiseName}
+                />
+            );
         });
 
         return <div className="search-results">{franchiseListItem}</div>;

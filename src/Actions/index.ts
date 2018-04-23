@@ -11,6 +11,7 @@ export const FETCH_FRANCHISE = 'FETCH_FRANCHISE';
 export const FETCH_DETAIL = 'FETCH_DETAIL';
 export const UPDATE_FRANCHISE_CART = 'UPDATE_FRANCHISE_CART';
 export const REMOVE_FRANCHISE_CART = 'REMOVE_FRANCHISE_CART';
+export const UPDATE_FRANCHISE_BTN_STATE = 'UPDATE_FRANCHISE_BTN_STATE';
 
 
 export function fetchListing(): any {
@@ -31,7 +32,7 @@ export function fetchItem(): any {
 }
 
 export function fetchFranchises(): any {
-    const request: any = axios.get(FRANCHISE_API_DATA)
+    const request: any = axios.get(ITEM_API_DATA)
     .then((response) => {
         return response;
     });
@@ -43,7 +44,7 @@ export function fetchFranchises(): any {
 
 export function fetchDetail(id: number): any {
     // console.log(`${FRANCHISE_API_DATA}${id}`, 'request');
-    const request: any = axios.get(`${FRANCHISE_API_DATA}${id}`)
+    const request: any = axios.get(`${ITEM_API_DATA}${id}`)
         .then((response) => {
             return response;
         });
@@ -70,3 +71,4 @@ export function removeFromFranchiseCart(franchiseName: string) {
         franchiseInCart: false
     };
 }
+

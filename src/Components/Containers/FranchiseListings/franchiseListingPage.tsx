@@ -16,18 +16,15 @@ interface Props {
     removeFromFranchiseCart: any;
     franchiseInCart: boolean;
 }
-interface State {
-    franchiseInCart: boolean;
-}
+interface State {}
 
 class FranchiseListingsPage extends React.Component<Props, State> {
+    public shouldTriggerRemoveFranchise: boolean = false;
+    public franchiseId: number = 0;
+    public franchiseName: string = '';
     
     constructor(props: Props) {
         super(props);
-
-        this.state = {
-            franchiseInCart: false
-        };
 
         this.addToCart = this.addToCart.bind(this);
         this.removeFromCart = this.removeFromCart.bind(this);
@@ -39,22 +36,15 @@ class FranchiseListingsPage extends React.Component<Props, State> {
 
     addToCart(id: number, name: string): void {
         this.props.addToFranchiseCart(name);
-
         document.cookie = `franchiseInCart_${id}=${name}`;
-
-        this.setState({
-            franchiseInCart: true
-        });
     }
 
     removeFromCart(id: number, name: string): void {
         this.props.removeFromFranchiseCart(name);
-
         document.cookie = `franchiseInCart_${id}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
-
-        this.setState({
-            franchiseInCart: false
-        });
+        this.shouldTriggerRemoveFranchise = true;
+        this.franchiseId = id;
+        this.franchiseName = name;
     }
 
     render() {
@@ -68,6 +58,9 @@ class FranchiseListingsPage extends React.Component<Props, State> {
                             franchiseInCart={this.props.franchiseInCart}
                             addToCart={this.addToCart}
                             removeFromCart={this.removeFromCart}
+                            shouldTriggerRemoveFranchise={this.shouldTriggerRemoveFranchise}
+                            franchiseId={this.franchiseId}
+                            franchiseName={this.franchiseName}
                         />
                     </div>
                     <div className="cart-container">

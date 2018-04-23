@@ -7,10 +7,14 @@ interface FranchiseListItemProps extends Franchise {
     franchiseInCart: boolean;
     addToCart: any;
     removeFromCart: any;
+    shouldTriggerRemoveFranchise: boolean;
+    franchiseIdToRemove: number;
+    franchiseNameToRemove: string;
 }
 
 interface State {
     franchiseInCart: boolean;
+    shouldTriggerRemoveFranchise: boolean;
 }
 
 class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
@@ -19,13 +23,21 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
         super(props);
 
         this.state = {
-            franchiseInCart: this.existsInCart(this.props.franchiseId)
+            franchiseInCart: this.existsInCart(this.props.franchiseId),
+            shouldTriggerRemoveFranchise: this.props.shouldTriggerRemoveFranchise
         };
+    }
+
+    componentWillReceiveProps(nextProps: FranchiseListItemProps, nextState: State): void {
+        if (nextProps.shouldTriggerRemoveFranchise &&
+            nextProps.franchiseIdToRemove === this.props.franchiseId &&
+            nextProps.franchiseNameToRemove === this.props.name) {
+            this.removeFromCart(this.props.franchiseIdToRemove, this.props.franchiseNameToRemove);
+        }
     }
 
     addToCart(id: number, name: string): void {
         this.props.addToCart(id, name);
-
         this.setState({
             franchiseInCart: true
         });
@@ -33,7 +45,6 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
 
     removeFromCart(id: number, name: string): void {
         this.props.removeFromCart(id, name);
-
         this.setState({
             franchiseInCart: false
         });
@@ -65,6 +76,7 @@ class FranchiseListItem extends React.Component<FranchiseListItemProps, State> {
                 </Link>
                 <button 
                     key={this.props.franchiseId}
+                    id={this.props.franchiseId.toString()}
                     className={this.state.franchiseInCart ? `addedToCart ${this.props.franchiseId}`  : `addToCart ${this.props.franchiseId}`} 
                     onClick={() => {this.state.franchiseInCart ? this.removeFromCart(this.props.franchiseId, this.props.name) : this.addToCart(this.props.franchiseId, this.props.name);}}
                 >
