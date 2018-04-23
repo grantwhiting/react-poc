@@ -32,7 +32,7 @@ export function fetchItem(): any {
 }
 
 export function fetchFranchises(): any {
-    const request: any = axios.get(ITEM_API_DATA)
+    const request: any = axios.get(FRANCHISE_API_DATA)
     .then((response) => {
         return response;
     });
@@ -44,7 +44,7 @@ export function fetchFranchises(): any {
 
 export function fetchDetail(id: number): any {
     // console.log(`${FRANCHISE_API_DATA}${id}`, 'request');
-    const request: any = axios.get(`${ITEM_API_DATA}${id}`)
+    const request: any = axios.get(`${FRANCHISE_API_DATA}${id}`)
         .then((response) => {
             return response;
         });
